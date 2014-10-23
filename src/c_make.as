@@ -143,7 +143,7 @@ endif
 
 ifeq ($(OSTYPE), Darwin)
   CC               = gcc-4.9 --std=gnu99
-  CXX              = g++-4.9 --std=gnu++03
+  CXX              = g++-4.9 --std=c++03
   ARCH_CFLAGS      = -D_THREAD_SAFE
   ARCH_CXXFLAGS    = 
 

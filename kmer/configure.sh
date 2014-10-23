@@ -133,7 +133,7 @@ CFLAGS_COMPILE    := -Ofast -fPIC -m64 -fmessage-length=0 -D_REENTRANT -D_THREAD
 CLDFLAGS          := -m64
 CLIBS             := 
 CXX               := $CXX
-CXXFLAGS_COMPILE  := -Ofast -fPIC -m64 -fmessage-length=0 -D_REENTRANT -D_THREAD_SAFE -Wall -Wno-char-subscripts --std=gnu++03
+CXXFLAGS_COMPILE  := -Ofast -fPIC -m64 -fmessage-length=0 -D_REENTRANT -D_THREAD_SAFE -Wall -Wno-char-subscripts --std=c++03
 CXXLDFLAGS        := -m64
 CXXLIBS           := 
 LDFLAGS_PYTHON    := -bundle -framework CoreFoundation -framework Python -dynamic
@@ -153,7 +153,7 @@ CFLAGS_COMPILE    := -g3 -m64 -fmessage-length=0 -D_REENTRANT -D_THREAD_SAFE -Wa
 CLDFLAGS          := -m64
 CLIBS             := 
 CXX               := $CXX
-CXXFLAGS_COMPILE  := -g3 -m64 -fmessage-length=0 -D_REENTRANT -D_THREAD_SAFE -Wall -Wno-char-subscripts --std=gnu++03
+CXXFLAGS_COMPILE  := -g3 -m64 -fmessage-length=0 -D_REENTRANT -D_THREAD_SAFE -Wall -Wno-char-subscripts --std=c++03
 CXXLDFLAGS        := -m64
 CXXLIBS           := 
 LDFLAGS_PYTHON    := -bundle -framework CoreFoundation -framework Python -dynamic
