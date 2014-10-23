@@ -15,7 +15,7 @@ platforms have pre-compiled binary distributions ready for installation.
 
 Full documentation can be found online at http://wgs-assembler.sourceforge.net/.
 
-Citation
+## Citation
 
 Please cite Celera Assembler in publications that refer to its algorithm or its
 output. The standard citation is the original paper [Myers et al. (2000) A
@@ -27,7 +27,7 @@ Sanger+pyrosequencing hybrid pipeline [Goldberg et al. 2006] and native assembly
 of 454 data [Miller et al. 2008]. There are links to these papers, and more, in
 the on-line documentation (http://wgs-assembler.sourceforge.net/).
 
-Compilation and Installation
+## Compilation and Installation
 
 Users can download Celera Assembler as source code or as pre-compiled
 binaries. The source code package needs to be compiled and installed before it
@@ -52,7 +52,7 @@ In both cases, you can run the assembler with:
 
   wgs-8.2alpha*/bin/runCA
 
-Legal
+## Legal
 
 Copyright 1999-2004 by Applera Corporation. Copyright 2005-2013 by the J. Craig
 Venter Institute. The Celera Assembler software, also known as the wgs-assembler
