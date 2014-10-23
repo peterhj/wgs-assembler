@@ -411,7 +411,7 @@ sub makeAbsolute ($) {
 sub getInstallDirectory () {
     my @t = split '/', "$FindBin::RealBin";
     pop @t;                         #  bin
-    pop @t;                         #  arch, e.g., FreeBSD-amd64
+    #pop @t;                         #  arch, e.g., FreeBSD-amd64
     my $installDir = join '/', @t;  #  path to the assembler
 
     return($installDir);
@@ -427,7 +427,8 @@ sub getBinDirectory () {
     $arch = "amd64"  if ($arch eq "x86_64");
     $arch = "ppc"    if ($arch eq "Power Macintosh");
 
-    my $path = "$installDir/$syst-$arch/bin";
+    #my $path = "$installDir/$syst-$arch/bin";
+    my $path = "$installDir/bin";
 
     my $pathMap = getGlobal("pathMap");
     if (defined($pathMap)) {
@@ -458,7 +459,8 @@ sub getBinDirectoryShellCode () {
     $string .= "  arch=\"ppc\"\n";
     $string .= "fi\n";
     $string .= "\n";
-    $string .= "bin=\"$installDir/\$syst-\$arch/bin\"\n";
+    #$string .= "bin=\"$installDir/\$syst-\$arch/bin\"\n";
+    $string .= "bin=\"$installDir/bin\"\n";
     $string .= "\n";
 
     my $pathMap = getGlobal("pathMap");
@@ -1111,7 +1113,7 @@ my $BLASR = "$CA/../../../smrtanalysis/current/analysis/bin/";
 my $FALCON = "$CA/../../../FALCON-0.1.2/bin/";
 my $BOWTIE = "$CA/../../../bowtie2/";
 my $MHAP_OVL = "$CA/../lib/java/mhap-0.1-ob.jar";
-my $JELLYFISH = "$CA/../../../jellyfish/bin/";
+#my $JELLYFISH = "$CA/../../../jellyfish/bin/";
 my $wrk = makeAbsolute("");
 my $asm = "asm";
 my $scriptParams = getGlobal("sgeScript");

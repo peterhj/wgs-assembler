@@ -108,7 +108,7 @@ sub submitBatchJobs($$) {
 sub getInstallDirectory () {
     my @t = split '/', "$FindBin::RealBin";
     pop @t;                         #  bin
-    pop @t;                         #  arch, e.g., FreeBSD-amd64
+    #pop @t;                         #  arch, e.g., FreeBSD-amd64
     my $installDir = join '/', @t;  #  path to the assembler
 
     return($installDir);
@@ -124,7 +124,8 @@ sub getBinDirectory () {
     $arch = "amd64"  if ($arch eq "x86_64");
     $arch = "ppc"    if ($arch eq "Power Macintosh");
 
-    my $path = "$installDir/$syst-$arch/bin";
+    #my $path = "$installDir/$syst-$arch/bin";
+    my $path = "$installDir/bin";
 
     my $pathMap = getGlobal("pathMap");
     if (defined($pathMap)) {

@@ -94,7 +94,7 @@ ifdef SAMTOOLS
    CXX_PROGS += convertSamToCA
 endif
 
-SCRIPTS     = PBcR convertToPBCNS addCNSToStore mhap falcon_sense pbutgcns jellyfish
+SCRIPTS     = pacBioToCA convertToPBCNS addCNSToStore mhap falcon_sense pbutgcns
 
 # Include for AS project rules
 include $(LOCAL_WORK)/src/c_make.as
@@ -118,6 +118,7 @@ ifeq ($(OSTYPE), Darwin)
    LDFLAGS += -lz
 endif
 
+.PHONY: all libbam.a
 
 all:    $(OBJECTS) $(LIBRARIES) $(CXX_PROGS) $(SCRIPTS)
 	@test -n nop
@@ -127,7 +128,6 @@ libAS_PBR.a: $(PBR_LIB_OBJECTS)
 libCA.a: $(PBR_LIB_OBJECTS)
 
 libbam.a:
-	$(MAKE) -C $(SAMTOOLS)/
 	@cp $(SAMTOOLS)/$@ $(LOCAL_LIB)/$@
 
 
@@ -141,11 +141,9 @@ correctPacBio:	   CorrectPacBio.o $(LIBS)
 
 dumpPBRLayoutStore:	AS_PBR_dumpStore.o $(LIBS)
 
-PBcR: PBcR.pl
+pacBioToCA: PBcR.pl
 	@cp $< $(LOCAL_BIN)/$@
 	@chmod 775 $(LOCAL_BIN)/$@
-	@rm -f $(LOCAL_BIN)/pacBioToCA
-	@ln -s $(LOCAL_BIN)/$@ $(LOCAL_BIN)/pacBioToCA
 
 convertToPBCNS: convertToPBCNS.pl
 	@cp $< $(LOCAL_BIN)/$@
@@ -166,14 +164,3 @@ falcon_sense: falcon_sense.$(LOCAL_NAME).bin
 pbutgcns: pbutgcns.$(LOCAL_NAME).bin
 	@cp $< $(LOCAL_BIN)/$@
 	@chmod 775 $(LOCAL_BIN)/$@
-
-ifeq ($(OSTYPE), Linux)
-jellyfish: jellyfish.$(LOCAL_NAME).bin
-	@cp $< $(LOCAL_BIN)/$@
-	@chmod 775 $(LOCAL_BIN)/$@
-else
-jellyfish: jellyfish.$(LOCAL_NAME).bin
-	@cp $< $(LOCAL_BIN)/$@
-	@cp *dylib $(LOCAL_LIB)/
-	@chmod 775 $(LOCAL_BIN)/$@
-endif

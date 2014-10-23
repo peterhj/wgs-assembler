@@ -2,21 +2,27 @@
 
 This is a minor fork of the Celera Assembler, based on version 8.2beta.
 Modifications are in the tooling, and are intended to get it to run in our
-development workflows on OS X and Linux.
+development workflows (only OS X for now).
+
+## Requirements
+
+- gcc/g++ 4.9 (Homebrew has it as the default gcc)
 
 ## Installation
 
 Compile <code>kmer</code>:
 
     cd kmer
-    ./configure.sh
+    CC=gcc-4.9 CXX=g++-4.9 ./configure.sh
     make
     cd ..
 
 Compile <code>samtools</code>:
 
-    # TODO
+    cd samtools
+    make
+    cd ..
 
 Compile <code>src</code>:
 
-    # TODO
+    make

@@ -142,9 +142,10 @@ endif
 
 
 ifeq ($(OSTYPE), Darwin)
-  CC               = gcc
-  CXX              = g++
+  CC               = gcc-4.9 --std=gnu99
+  CXX              = g++-4.9 --std=gnu++03
   ARCH_CFLAGS      = -D_THREAD_SAFE
+  ARCH_CXXFLAGS    = 
 
   #  Bogart, OpenMP, will not compile with clang.  It cannot find omp.h.
   #CC  = clang 
@@ -171,7 +172,7 @@ ifeq ($(OSTYPE), Darwin)
 
   ARCH_LDFLAGS  += -m64 -lm
 
-  ARCH_LIB         = /opt/local/lib /usr/X11R6/lib
+  ARCH_LIB         = /usr/local/lib /usr/X11R6/lib
 endif
 
 

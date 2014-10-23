@@ -1,5 +1,5 @@
-CC=			gcc
-CFLAGS=		-g -Wall -O2
+CC=			gcc-4.9
+CFLAGS=		-g -Wall -O2 --std=gnu99
 #LDFLAGS=		-Wl,-rpath,\$$ORIGIN/../lib
 DFLAGS=		-D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_USE_KNETFILE -D_CURSES_LIB=1
 KNETFILE_O=	knetfile.o

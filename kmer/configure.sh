@@ -129,11 +129,11 @@ case $target in
 #
 CC                := $CC
 SHLIB_FLAGS       := -dynamiclib -undefined dynamic_lookup
-CFLAGS_COMPILE    := -Ofast -fPIC -m64 -fmessage-length=0 -D_REENTRANT -D_THREAD_SAFE -Wall -Wno-char-subscripts
+CFLAGS_COMPILE    := -Ofast -fPIC -m64 -fmessage-length=0 -D_REENTRANT -D_THREAD_SAFE -Wall -Wno-char-subscripts --std=gnu99
 CLDFLAGS          := -m64
 CLIBS             := 
 CXX               := $CXX
-CXXFLAGS_COMPILE  := -Ofast -fPIC -m64 -fmessage-length=0 -D_REENTRANT -D_THREAD_SAFE -Wall -Wno-char-subscripts
+CXXFLAGS_COMPILE  := -Ofast -fPIC -m64 -fmessage-length=0 -D_REENTRANT -D_THREAD_SAFE -Wall -Wno-char-subscripts --std=gnu++03
 CXXLDFLAGS        := -m64
 CXXLIBS           := 
 LDFLAGS_PYTHON    := -bundle -framework CoreFoundation -framework Python -dynamic
@@ -149,11 +149,11 @@ EOF
 #
 CC                := $CC
 SHLIB_FLAGS       := -dynamiclib -undefined dynamic_lookup
-CFLAGS_COMPILE    := -g3 -m64 -fmessage-length=0 -D_REENTRANT -D_THREAD_SAFE -Wall -Wno-char-subscripts
+CFLAGS_COMPILE    := -g3 -m64 -fmessage-length=0 -D_REENTRANT -D_THREAD_SAFE -Wall -Wno-char-subscripts --std=gnu99
 CLDFLAGS          := -m64
 CLIBS             := 
 CXX               := $CXX
-CXXFLAGS_COMPILE  := -g3 -m64 -fmessage-length=0 -D_REENTRANT -D_THREAD_SAFE -Wall -Wno-char-subscripts
+CXXFLAGS_COMPILE  := -g3 -m64 -fmessage-length=0 -D_REENTRANT -D_THREAD_SAFE -Wall -Wno-char-subscripts --std=gnu++03
 CXXLDFLAGS        := -m64
 CXXLIBS           := 
 LDFLAGS_PYTHON    := -bundle -framework CoreFoundation -framework Python -dynamic
@@ -328,7 +328,7 @@ CFLAGS_COMPILE    := -D_REENTRANT -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -O3
 CLDFLAGS          :=
 CLIBS             := -lpthread -lrt
 CXX               := $CXX -m64
-CXXFLAGS_COMPILE  := -D_REENTRANT -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -O3 -Wall -Wno-char-subscripts -funroll-loops -fexpensive-optimizations -finline-functions -fomit-frame-pointer 
+CXXFLAGS_COMPILE  := -D_REENTRANT -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -O3 -Wall -Wno-char-subscripts -funroll-loops -fexpensive-optimizations -finline-functions -fomit-frame-pointer
 CXXLDFLAGS        :=
 CXXLIBS           := -lpthread -lrt
 ARFLAGS           := ruv
@@ -368,8 +368,8 @@ PERL              := /usr/bin/perl
 .O                := .o
 CLD               := \${CC}
 CXXLD             := \${CXX}
-CCDEP		  := gcc -MM -MG
-CXXDEP	          := g++ -MM -MG
+CCDEP		  := \${CC} -MM -MG
+CXXDEP	          := \${CXX} -MM -MG
 CLIBS             += -lm -lbz2
 CXXLIBS           += -lm -lbz2
 PYTHON            := $PYTHON
