@@ -105,7 +105,7 @@ ALL_C_DEPS       :=$(foreach x,${//},$(patsubst %,%.d,${${x:.=.C_SRCS}}))
 ${ALL_C_DEPS}:%.d:%
 	@ echo "making $@"
 	@ dir=`echo $< | sed -e's~[^/]*$$~~'`; \
-	  ${CCDEP} ${CDEPFLAGS} ${CFLAGS} $< | \
+	  ${CCDEP} ${CDEPFLAGS} ${CFLAGS} ${CFLAGS_PYTHON} $< | \
 	  sed -e"/:/s!^!$${dir}!" > $@
 
 __DEPGOALS__     +=                 $$(patsubst %,%.d,$${${1:.=.CXX_SRCS}})
@@ -113,7 +113,7 @@ ALL_CXX_DEPS     :=$(foreach x,${//},$(patsubst %,%.d,${${x:.=.CXX_SRCS}}))
 ${ALL_CXX_DEPS}:%.d:%
 	@ echo "making $@"
 	@ dir=`echo $< | sed -e's~[^/]*$$~~'`; \
-	  ${CXXDEP} ${CXXDEPFLAGS} ${CXXFLAGS} $< | \
+	  ${CXXDEP} ${CXXDEPFLAGS} ${CXXFLAGS} ${CFLAGS_PYTHON} $< | \
 	  sed -e"/:/s!^!$${dir}!" > $@
 
 
@@ -123,16 +123,16 @@ ${ALL_CXX_DEPS}:%.d:%
 .SUFFIXES: ${.O}
 
 %${.O}: %.c
-	${-CC} ${CC} ${CFLAGS} ${CFLAGS_COMPILE} -o $@ -c $<
+	${-CC} ${CC} ${CFLAGS} ${CFLAGS_COMPILE} ${CFLAGS_PYTHON} -o $@ -c $<
 
 %${.O}: %.cc
-	${-CXX} ${CXX} ${CXXFLAGS} ${CXXFLAGS_COMPILE} -o $@ -c $<
+	${-CXX} ${CXX} ${CXXFLAGS} ${CXXFLAGS_COMPILE} ${CFLAGS_PYTHON} -o $@ -c $<
 
 %${.O}: %.cpp
-	${-CXX} ${CXX} ${CXXFLAGS} ${CXXFLAGS_COMPILE} -o $@ -c $<
+	${-CXX} ${CXX} ${CXXFLAGS} ${CXXFLAGS_COMPILE} ${CFLAGS_PYTHON} -o $@ -c $<
 
 %${.O}: %.C
-	${-CXX} ${CXX} ${CXXFLAGS} ${CXXFLAGS_COMPILE} -o $@ -c $<
+	${-CXX} ${CXX} ${CXXFLAGS} ${CXXFLAGS_COMPILE} ${CFLAGS_PYTHON} -o $@ -c $<
 
 
 # linking commands use the $+ to get duplicated prereqs for linking
