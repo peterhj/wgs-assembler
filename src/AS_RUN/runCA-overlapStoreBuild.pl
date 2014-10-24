@@ -392,7 +392,8 @@ sub getBinDirectory () {
     $arch = "amd64"  if ($arch eq "x86_64");
     $arch = "ppc"    if ($arch eq "Power Macintosh");
 
-    return("$installDir/$syst-$arch/bin");
+    #return("$installDir/$syst-$arch/bin");
+    return("$installDir/bin");
 }
 
 sub getBinDirectoryShellCode () {
@@ -411,7 +412,8 @@ sub getBinDirectoryShellCode () {
     $string .= "  arch=\"ppc\"\n";
     $string .= "fi\n";
     $string .= "\n";
-    $string .= "bin=\"$installDir/\$syst-\$arch/bin\"\n";
+    #$string .= "bin=\"$installDir/\$syst-\$arch/bin\"\n";
+    $string .= "bin=\"$installDir/bin\"\n";
     $string .= "\n";
 
     return($string);

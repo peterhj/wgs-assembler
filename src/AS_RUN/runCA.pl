@@ -156,7 +156,8 @@ sub getBinDirectoryShellCode () {
     $string .= "  arch=\"ppc\"\n";
     $string .= "fi\n";
     $string .= "\n";
-    $string .= "bin=\"$installDir/\$syst-\$arch/bin\"\n";
+    #$string .= "bin=\"$installDir/\$syst-\$arch/bin\"\n";
+    $string .= "bin=\"$installDir/bin\"\n";
     $string .= "\n";
 
     my $pathMap = getGlobal("pathMap");

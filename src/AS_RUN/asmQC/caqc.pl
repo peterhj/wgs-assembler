@@ -15,10 +15,13 @@ use strict;
 use Getopt::Long;
 use IO::File;
 use File::Basename;
-use Statistics::Descriptive;
 use File::Copy;
 use Math::BigFloat;
 use FindBin qw($Bin);
+
+use FindBin;
+use lib "$FindBin::Bin";
+use Statistics::Descriptive;
 
 my $MY_VERSION = "caqc Version 2.13 (Build " . (qw/$Revision: 1.31 $/)[1] . ")";
 

@@ -81,7 +81,8 @@ sub getBinDirectory () {
     $arch = "amd64"  if ($arch eq "x86_64");
     $arch = "ppc"    if ($arch eq "Power Macintosh");
 
-    my $path = "$installDir/$syst-$arch/bin";
+    #my $path = "$installDir/$syst-$arch/bin";
+    my $path = "$installDir/bin";
 
     my $pathMap = getGlobal("pathMap");
     if (defined($pathMap)) {
@@ -118,7 +119,8 @@ sub getBinDirectoryShellCode () {
     $string .= "  arch=\"ppc\"\n";
     $string .= "fi\n";
     $string .= "\n";
-    $string .= "bin=\"$installDir/\$syst-\$arch/bin\"\n";
+    #$string .= "bin=\"$installDir/\$syst-\$arch/bin\"\n";
+    $string .= "bin=\"$installDir/bin\"\n";
     $string .= "\n";
 
     my $pathMap = getGlobal("pathMap");
