@@ -15,6 +15,7 @@ Compile <code>kmer</code>:
     cd kmer
     CC=gcc-4.9 CXX=g++-4.9 ./configure.sh
     make
+    make install
     cd ..
 
 Compile <code>samtools</code>:
@@ -25,4 +26,6 @@ Compile <code>samtools</code>:
 
 Compile <code>src</code>:
 
+    cd src
     make
+    cd ..
